@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div>
+    <h4>全部部件</h4>
+    <table class="table table-hover" id="table_items">
+         <thead>
+             <th>部件ID</th>
+             <th>部件名</th>
+             <th>数量</th>
+             <th>备注</th>
+         </thead>
+         {% for entry in items %}
+         <tr>
+             <td>{{entry.item_id}}</td>
+             <td>{{entry.item_name}}</td>
+             <td>{{entry.num}}</td>
+             <td>{{entry.comment}}</td>
+         </tr>
+         {% endfor %}
+    </table>
+</div>
+{% endblock %}

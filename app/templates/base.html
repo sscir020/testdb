@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Item CTR{% endblock %}
+{% block head %}
+	<meta charset="utf-8">
+	<title>test</title>
+	{{ super() }}
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">首页</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{{url_for('ctr.show_add_item')}}"> add item</a></li>
+				<li><a href="{{url_for('ctr.show_items')}}">show items</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+	{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
