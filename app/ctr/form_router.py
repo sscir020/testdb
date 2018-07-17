@@ -1,7 +1,9 @@
 from flask import request,redirect,url_for
 from . import ctr
-from ..models import Item
-from ..__init__ import db
+# from ..models import Item
+# from ..__init__ import db
+from ..models1 import Item
+from ..__init__ import DBSession
 import threading
 lock=threading.Lock()
 
@@ -12,10 +14,14 @@ def add_new_item():
     if item_name!='' and item_num!='':
         lock.acquire()
         i=Item(item_name=item_name,num=item_num)
-        db.session.add(i)
-        db.session.flush()
-        db.session.commit()
-        db.session.close()
+        # db.session.flush()
+        # db.session.add(i)
+        # db.session.commit()
+        # db.session.close()
+        session=DBSession()
+        session.add(i)
+        session.commit()
+        session.close()
         lock.release()
     return redirect(url_for('ctr.show_items'))
 
@@ -25,13 +31,22 @@ def add_item():
     item_num=request.form['input_number_num']
     if item_id!='' and item_num!='':
         lock.acquire()
-        i=Item.query.filter_by(item_id=item_id).first()
+        # i=Item.query.filter_by(item_id=item_id).first()
+        # if i!=None:
+        #     i.num+=int(item_num)
+            # db.session.flush()
+            # db.session.add(i)
+            # db.session.commit()
+            # db.session.refresh(i)
+            # db.session.close()
+        print("---------------")
+        session=DBSession()
+        i = session.query(Item).filter(Item.item_id==item_id).one()
         if i!=None:
             i.num+=int(item_num)
-            db.session.add(i)
-            db.session.flush()
-            db.session.commit()
-            db.session.close()
+            session.add(i)
+            session.commit()
+        session.close()
         lock.release()
     return redirect(url_for('ctr.show_items'))
 

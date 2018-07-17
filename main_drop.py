@@ -4,4 +4,4 @@ from app.models import *
 app=create_app('development')
 app.app_context().push()
 with  app.app_context():
-    db.create_all()
+    db.drop_all()

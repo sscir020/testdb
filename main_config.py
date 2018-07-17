@@ -7,10 +7,12 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     SECRET_KEY =  '1AR4bnTnLHZyHaKt' #os.environ.get('SECRET_KEY') or
-    # SQLALCHEMY_POOL_SIZE = 10
+    # SQLALCHEMY_POOL_SIZE = 100
     # SQLALCHEMY_MAX_OVERFLOW = 0
+    # SQLALCHEMY_ISOLATION_LEVEL= 'SERIALIZABLE'
+    # SQLALCHEMY_RECORD_QUERIES = True
+    # SQLALCHEMY_TRACK_MODIFICATIONS = False
     # FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASK_NUM_PER_PAGE = 5
     FLASK_NUM_PER_PAGE_LIST = 6
 #SESSION_TYPE= 'redis'

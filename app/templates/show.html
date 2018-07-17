@@ -19,8 +19,9 @@
          </tr>
          {% endfor %}
     </table>
-    <form action="{{ url_for('ctr.add_item') }}" method="post">
-        <input type="number" name="input_number_id">
+    <!--{{ url_for('ctr.add_item') }}-->
+    <form action="/add_item_act" method="post">
+        <input type="number" name="input_number_id" value="5">
         <input type="number" name="input_number_num" value='2'>
         <input type="submit">
     </form>
