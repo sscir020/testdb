@@ -8,7 +8,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY =  '1AR4bnTnLHZyHaKt' #os.environ.get('SECRET_KEY') or
     # SQLALCHEMY_POOL_SIZE = 100
-    # SQLALCHEMY_MAX_OVERFLOW = 0
+    SQLALCHEMY_MAX_OVERFLOW = 0
     # SQLALCHEMY_ISOLATION_LEVEL= 'SERIALIZABLE'
     # SQLALCHEMY_RECORD_QUERIES = True
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
