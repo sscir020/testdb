@@ -1,9 +1,9 @@
 from flask import session,render_template
 from . import ctr
-# from ..models import Item
-from ..models1 import Item
-# from .. import db
-from ..__init__ import DBSession
+from ..models import Item
+# from ..models1 import Item
+from .. import db
+# from ..__init__ import DBSession
 @ctr.route('/')#,methods=['GET','POST']
 @ctr.route('/index')
 def index():
@@ -17,10 +17,11 @@ def show_add_item():
 @ctr.route('/show_items_act',methods=['GET',''])
 def show_items():
     # db.session.commit()
-    # items=Item.query.all()
+    items=Item.query.all()
     # db.session.flush()
+    db.session.close()
     print("*********************")
-    session=DBSession()
-    items=session.query(Item).all()
+    # session=DBSession()
+    # items=session.query(Item).all()
 
     return render_template('show.html',items=items)

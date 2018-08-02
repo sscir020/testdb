@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div>
+    <h4>全部部件</h4>
+    {% if items !=None %}
+        <table class="table table-hover" id="table_items">
+             <thead>
+                 <th>部件ID</th>
+                 <th>部件名</th>
+                 <th>数量</th>
+                 <th>备注</th>
+             </thead>
+             {% for entry in items %}
+             <tr>
+                 <td>{{entry.item_id}}</td>
+                 <td>{{entry.item_name}}</td>
+                 <td>{{entry.num}}</td>
+                 <td>{{entry.comment}}</td>
+             </tr>
+             {% endfor %}
+        </table>
+    {% endif %}
+    <!--{{ url_for('ctr.change_item') }}-->
+    <!--<form action="/change_item_act" method="post">-->
+        <!--<input type="number" name="input_number_id" value="5">-->
+        <!--<input type="number" name="input_number_num" value='2'>-->
+        <!--<input type="submit">-->
+    <!--</form>-->
+</div>
+{{wtf.quick_form(form)}}
+{% endblock %}
