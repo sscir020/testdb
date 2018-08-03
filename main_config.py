@@ -1,5 +1,6 @@
 #coding:utf-8
 import os
+from enum import Enum
 basedir = os.path.abspath(os.path.dirname(__file__))
 # import sys
 # reload(sys)
@@ -48,3 +49,8 @@ class Config:
 #     'testing': TestingConfig,
 #     'default': DevelopmentConfig
 # }
+
+class type(Enum):
+    apple=1
+    orange=2
+    lemon=3

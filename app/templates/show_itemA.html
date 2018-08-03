@@ -22,17 +22,16 @@
              {% endfor %}
         </table>
     {% endif %}
-    <form name="form_text" action='/form_change_comment_act' method="post">
-         <input id="numcls3"  name="input_oprlist"  list="operations" >
-             <datalist id="operations">
-                 <option value="入库">
-                 <option value="取消购买">
-            </datalist>
-        <input type="text" name="input_text_1" value="hjkl;">
-        <input type="submit" name="input_submit_1" value="submit">
+    <form action="/form_change_commentA_act" method="post"><!--#POST  "  -->
+        {{form.id}}
+        {{form.num}}
+        {{form.num1}}
+        {{form.select}}
+        {{form.radio}}
+        {{form.bool}}
+        <!--{{form.submit}}-->
+        <input type="submit" value="submit">
     </form>
 </div>
-{% if form!=None %}
-{{wtf.quick_form(form)}}
-{% endif %}
+
 {% endblock %}
